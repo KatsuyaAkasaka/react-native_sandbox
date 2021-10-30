@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Box, Container, Button, Text, View, NativeBaseProvider } from 'native-base';
+import { Button, Text, View, NativeBaseProvider } from 'native-base';
 import { styles } from '../style';
 
 export const HomeScreen: FC = (props: any) => {
