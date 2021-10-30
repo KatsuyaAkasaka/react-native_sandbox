@@ -9,7 +9,10 @@
   },
   "dependencies": {
     "expo": "~43.0.0",
+    "expo-app-loading": "~1.2.1",
+    "expo-asset": "~8.4.3",
     "expo-status-bar": "~1.1.0",
+    "fs": "^0.0.1-security",
     "native-base": "^3.2.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
