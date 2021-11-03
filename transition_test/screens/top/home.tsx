@@ -3,12 +3,12 @@ import { Buttons } from '../../components/buttons';
 import { StyleSheet } from 'react-native';
 import { View } from 'native-base';
 
-import { CameraComponent } from '../../components/camera';
+import { Fugafuga } from '../../components/fugafuga';
 
 export const home: React.FC = (props: any) => {
 	return (
 		<View style={styles.container}>
-			<CameraComponent {...props} />
+			<Fugafuga {...props} />
 			<Buttons.toDetails {...props} title='go to top detail' />
 		</View >
 	);
