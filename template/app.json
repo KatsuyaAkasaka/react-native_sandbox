@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "hooks_test",
-    "slug": "hooks_test",
+    "name": "template",
+    "slug": "template",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
