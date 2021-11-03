@@ -9,13 +9,30 @@ init_native_base:
 	yarn add native-base styled-components styled-system
 	expo install react-native-svg react-native-safe-area-context
 
-.PHONY: init_others
-init_others:
+.PHONY: init_other_libraries
+init_other_libraries:
 	expo install expo-app-loading expo-asset expo-font @expo/vector-icons
+	yarn add prettier -D
 
-.PHONY: init
-init:
+.PHONY: init_node_modules
+init_node_modules:
 	rm -rf node_modules
 	make init_react_navigation
 	make init_native_base
-	make init_others
+	make init_other_libraries
+
+.PHONY: removeMakefile
+removeMakefile:
+	rm ../Makefile
+
+.PHONY: init
+init:
+	expo init $(target) --yarn --template="expo-template-blank-typescript"
+	cd $(target) && \
+	rm -rf .git .gitignore && \
+	make init_node_modules && \
+	rm App.tsx && \
+	curl https://raw.githubusercontent.com/KatsuyaAkasaka/react-native_sandbox/master/template/.prettierrc > .prettierrc && \
+	curl https://raw.githubusercontent.com/KatsuyaAkasaka/react-native_sandbox/master/template/.prettierignore > .prettierignore && \
+	curl https://raw.githubusercontent.com/KatsuyaAkasaka/react-native_sandbox/master/template/App.tsx > App.tsx
+	echo "bye👋"
