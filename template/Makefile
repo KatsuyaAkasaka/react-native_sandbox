@@ -27,12 +27,12 @@ removeMakefile:
 
 .PHONY: init
 init:
-	expo init $(target) --yarn --template="expo-template-blank-typescript"
-	cd $(target) && \
-	rm -rf .git .gitignore && \
-	make init_node_modules && \
+	rm -rf .git .gitignore package.json && \
 	rm App.tsx && \
+	curl https://raw.githubusercontent.com/KatsuyaAkasaka/react-native_sandbox/master/template/package.json > package.json && \
+	yarn install && \
 	curl https://raw.githubusercontent.com/KatsuyaAkasaka/react-native_sandbox/master/template/.prettierrc > .prettierrc && \
 	curl https://raw.githubusercontent.com/KatsuyaAkasaka/react-native_sandbox/master/template/.prettierignore > .prettierignore && \
 	curl https://raw.githubusercontent.com/KatsuyaAkasaka/react-native_sandbox/master/template/App.tsx > App.tsx
 	echo "bye👋"
+	rm Makefile
