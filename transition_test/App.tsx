@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Platform, StatusBar, StyleSheet, View, Text } from 'react-native';
 import { NativeBaseProvider } from 'native-base';
-import { Ionicons } from '@expo/vector-icons';
+// import { Ionicons } from '@expo/vector-icons';
 import AppLoading from 'expo-app-loading'
 import { Asset } from 'expo-asset';
-import * as Font from 'expo-font';
 import AppNavigator from './navigation';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 const App: React.FC = () => {
 	const [isLoadingComplete, setLoadingComplete] = useState(false)
@@ -34,12 +34,14 @@ const App: React.FC = () => {
 		);
 	} else {
 		return (
-			<NativeBaseProvider>
-				<View style={styles.container}>
-					{Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-					<AppNavigator />
-				</View>
-			</NativeBaseProvider>
+			<SafeAreaProvider>
+				<NativeBaseProvider>
+					<View style={styles.container}>
+						{Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+						<AppNavigator />
+					</View>
+				</NativeBaseProvider>
+			</SafeAreaProvider>
 		);
 	}
 }

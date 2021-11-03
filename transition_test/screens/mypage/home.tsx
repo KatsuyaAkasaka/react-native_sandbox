@@ -1,17 +1,15 @@
 import React from 'react';
-import {
-	StyleSheet,
-	// View,
-} from 'react-native';
-import { Button, View } from 'native-base';
+import { Buttons } from '../../components/buttons';
+import { StyleSheet } from 'react-native';
+import { View } from 'native-base';
 
-import { CameraComponent } from '../components/camera';
+import { CameraComponent } from '../../components/camera';
 
 export const home: React.FC = (props: any) => {
 	return (
 		<View style={styles.container}>
 			<CameraComponent {...props} />
-			<Button onPress={() => props.navigation.navigate('Details')}>go to details</Button>
+			<Buttons.toDetails {...props} title='go to mypage detail' />
 		</View >
 	);
 }
