@@ -30,11 +30,7 @@ const App: React.FC = () => {
   const [isLoadingComplete, setLoadingComplete] = useState(false)
   const _loadResourcesAsync = async () => {
     await Promise.all([
-      Asset.loadAsync([
-        require('./assets/splash.png'),
-        require('./assets/icon.png'),
-        require('./assets/favicon.png'),
-      ]),
+      Asset.loadAsync([require('./assets/splash.png'), require('./assets/icon.png'), require('./assets/favicon.png')]),
       Font.loadAsync({
         ...FontAwesome.font,
       }),
@@ -44,23 +40,12 @@ const App: React.FC = () => {
   const _handleLoadingError = (error: Error) => {}
   const _handleFinishLoading = () => setLoadingComplete(true)
   if (!isLoadingComplete) {
-    return (
-      <AppLoading
-        startAsync={_loadResourcesAsync}
-        onError={_handleLoadingError}
-        onFinish={_handleFinishLoading}
-      />
-    )
+    return <AppLoading startAsync={_loadResourcesAsync} onError={_handleLoadingError} onFinish={_handleFinishLoading} />
   } else {
     return (
       <SafeAreaProvider>
         <NativeBaseProvider theme={theme}>
-          <Center
-            _dark={{ bg: 'blueGray.900' }}
-            _light={{ bg: 'blueGray.50' }}
-            px={4}
-            flex={1}
-          >
+          <Center _dark={{ bg: 'blueGray.900' }} _light={{ bg: 'blueGray.50' }} px={4} flex={1}>
             <VStack space={5} alignItems='center'>
               <Heading size='lg'>Welcome to NativeBase</Heading>
               <HStack space={2} alignItems='center'>
@@ -90,9 +75,7 @@ function ToggleDarkMode() {
       <Switch
         isChecked={colorMode === 'light' ? true : false}
         onToggle={toggleColorMode}
-        aria-label={
-          colorMode === 'light' ? 'switch to dark mode' : 'switch to light mode'
-        }
+        aria-label={colorMode === 'light' ? 'switch to dark mode' : 'switch to light mode'}
       />
       <Text>Light</Text>
     </HStack>

@@ -1,9 +1,8 @@
-import React from 'react';
-import { AppContainer } from './src/screens/index'
-import AppLoading from 'expo-app-loading';
-import { Asset } from 'expo-asset';
-import fs from 'fs';
-
+import React from "react";
+import { AppContainer } from "./src/screens/index";
+import AppLoading from "expo-app-loading";
+import { Asset } from "expo-asset";
+import fs from "fs";
 
 // export const App = () => {
 //   <AppContainer />;
@@ -27,20 +26,20 @@ export default class App extends React.Component {
     return <AppContainer />;
   }
   async _cacheResourcesAsync() {
-    const images = [require('./assets/nyan.gif')];
+    const images = [require("./assets/nyan.gif")];
 
-    const cacheImages = images.map(image => {
-      Asset.fromModule(image).downloadAsync()
+    const cacheImages = images.map((image) => {
+      Asset.fromModule(image).downloadAsync();
     });
     return new Promise<void>(async (resolve, reject) => {
       try {
-        await Promise.all(cacheImages)
+        await Promise.all(cacheImages);
         setTimeout(() => {
-          resolve()
-        }, 10000)
+          resolve();
+        }, 10000);
       } catch (e) {
-        reject()
+        reject();
       }
-    })
+    });
   }
 }

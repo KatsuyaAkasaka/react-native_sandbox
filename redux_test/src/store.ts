@@ -1,18 +1,18 @@
-import { createStore } from 'redux';
-import { reducers } from './reducers';
+import { createStore } from "redux";
+import { reducers } from "./reducers";
 // store.js
-export const store = createStore(reducers)
+export const store = createStore(reducers);
 
 // storeは巨大なjsonです。storeの中身を取り出すにはgetStateメソッドを使います。
 // エミュレータでcommand + dを押し、enable remote debugをクリックしましょう。
 // debuggerが現れるので、consoleタブをクリックし、エミュレータ上でアプリをcommandd + rで再起動しましょう。
-console.log(store.getState())
+console.log(store.getState());
 
 // arrayやobjectを綺麗に表示したい時はconsole.tableが便利です。
-console.table(store.getState())
+console.table(store.getState());
 
 // storeはjsonです。つまりjsのオブジェクトです。 jsの関数のtypeofでstoreのstateがオブジェクトであることを確かめましょう。
-console.log(typeof store.getState)
+console.log(typeof store.getState);
 
 // storeもまたjsのオブジェクトであり、４つしかメソッドを持たないことを確認しておきましょう。
-console.log(store)
+console.log(store);

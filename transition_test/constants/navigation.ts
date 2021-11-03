@@ -1,29 +1,21 @@
-import { unionToObject, unionToLowerObject } from './utilTypes'
-export type tabNames =
-  | 'Top'
-  | 'Mypage'
+import { unionToObject, unionToLowerObject } from "./utilTypes";
+export type tabNames = "Top" | "Mypage";
 
 export const tabNameObject: unionToLowerObject<tabNames> = {
-  top: 'Top',
-  mypage: 'Mypage'
-} as const
+  top: "Top",
+  mypage: "Mypage",
+} as const;
 
-
-export type stackNames =
-  | 'Home'
-  | 'Details'
+export type stackNames = "Home" | "Details";
 
 export const stackNameObject: unionToLowerObject<stackNames> = {
-  home: 'Home',
-  details: 'Details'
-} as const
+  home: "Home",
+  details: "Details",
+} as const;
 
-export type drawerNames =
-  | 'Home'
-  | 'Notification'
+export type drawerNames = "Home" | "Notification";
 
 export const drawerNameObject: unionToLowerObject<drawerNames> = {
-  home: 'Home',
-  notification: 'Notification'
-} as const
-
+  home: "Home",
+  notification: "Notification",
+} as const;

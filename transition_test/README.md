@@ -1,6 +1,7 @@
 # transition test
 
-react navigationを個人的に勉強しているディレクトリ
+react navigation を個人的に勉強しているディレクトリ
+
 - drawer
 - tab
 - stack
@@ -35,6 +36,7 @@ react navigationを個人的に勉強しているディレクトリ
 │   └── top
 └── tsconfig.json
 ```
+
 依存関係は
 navigation
 ↓
@@ -42,17 +44,21 @@ screens
 ↓
 components
 
-## navigation層
-react navigationを用いて画面繊維を含めた全体の設計を構築するのが責務
-screensを組み合わせて一つのnavigationを構築する
+## navigation 層
 
-## screens層
+react navigation を用いて画面繊維を含めた全体の設計を構築するのが責務
+screens を組み合わせて一つの navigation を構築する
+
+## screens 層
+
 一枚の画面を構築する
-できればnative baseに依存していない状態が理想
+できれば native base に依存していない状態が理想
 
-## components層
+## components 層
+
 共通化できるコンポーネントが関数単位でまとめられている
-native baseに依存している状態
+native base に依存している状態
 
-## constants層
+## constants 層
+
 定数
