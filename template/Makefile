@@ -21,18 +21,21 @@ init_node_modules:
 	make init_native_base
 	make init_other_libraries
 
-.PHONY: removeMakefile
-removeMakefile:
-	rm ../Makefile
+.PHONY: clone_codes
+clone_codes:
+	git clone https://github.com/KatsuyaAkasaka/react-native_sandbox
+	cp -r ./react-native_sandbox/template/src ./
+	cp react-native_sandbox/template/App.tsx ./
+	cp react-native_sandbox/template/.prettierrc ./
+	cp react-native_sandbox/template/.prettierignore ./
+	cp react-native_sandbox/template/package.json ./
+	rm -rf react-native_sandbox
 
 .PHONY: init
 init:
-	rm -rf .git .gitignore package.json && \
+	rm -rf .git .gitignore package.json yarn.lock package-lock.json && \
 	rm App.tsx && \
-	curl https://raw.githubusercontent.com/KatsuyaAkasaka/react-native_sandbox/master/template/package.json > package.json && \
+	make clone_codes && \
 	yarn install && \
-	curl https://raw.githubusercontent.com/KatsuyaAkasaka/react-native_sandbox/master/template/.prettierrc > .prettierrc && \
-	curl https://raw.githubusercontent.com/KatsuyaAkasaka/react-native_sandbox/master/template/.prettierignore > .prettierignore && \
-	curl https://raw.githubusercontent.com/KatsuyaAkasaka/react-native_sandbox/master/template/App.tsx > App.tsx
 	echo "bye👋"
 	rm Makefile
