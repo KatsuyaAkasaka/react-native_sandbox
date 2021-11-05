@@ -37,7 +37,7 @@ const App: React.FC = () => {
     ])
     return
   }
-  const _handleLoadingError = (error: Error) => {}
+  const _handleLoadingError = (error: Error) => { }
   const _handleFinishLoading = () => setLoadingComplete(true)
   if (!isLoadingComplete) {
     return <AppLoading startAsync={_loadResourcesAsync} onError={_handleLoadingError} onFinish={_handleFinishLoading} />

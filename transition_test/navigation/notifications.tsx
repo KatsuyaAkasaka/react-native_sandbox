@@ -6,7 +6,7 @@ import { home } from "../screens/notifications/home";
 const Stack = createStackNavigator();
 
 // home画面の構成を作成
-export const notificationNav: React.FC<any> = (props: any) => {
+export const notificationNav: React.FC = (props: any) => {
   return (
     <Stack.Navigator
       initialRouteName="Safe"

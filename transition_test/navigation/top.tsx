@@ -8,7 +8,7 @@ import { details } from "../screens/top/details";
 const Stack = createStackNavigator();
 
 // home画面の構成を作成
-export const topNav: React.FC<any> = (props: any) => {
+export const topNav: React.FC = (props: any) => {
   return (
     <Stack.Navigator
       initialRouteName={stackNameObject.home}
