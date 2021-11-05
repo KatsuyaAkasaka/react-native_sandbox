@@ -1,23 +1,14 @@
 import React, { useState } from 'react'
 import {
   NativeBaseProvider,
-  Center,
-  VStack,
-  HStack,
-  Heading,
-  Code,
-  Link,
-  Text,
-  useColorMode,
   extendTheme,
-  Switch,
 } from 'native-base'
 import { FontAwesome } from '@expo/vector-icons'
 import AppLoading from 'expo-app-loading'
 import { Asset } from 'expo-asset'
 import Font from 'expo-font'
-// import AppNavigator from './navigation';
 import { SafeAreaProvider } from 'react-native-safe-area-context'
+import Navigation from './src/navigations/index'
 
 const config = {
   useSystemColorMode: false,
@@ -41,7 +32,7 @@ const App: React.FC = () => {
     ])
     return
   }
-  const _handleLoadingError = (error: Error) => {}
+  const _handleLoadingError = (error: Error) => { }
   const _handleFinishLoading = () => setLoadingComplete(true)
   if (!isLoadingComplete) {
     return (
@@ -55,48 +46,11 @@ const App: React.FC = () => {
     return (
       <SafeAreaProvider>
         <NativeBaseProvider theme={theme}>
-          <Center
-            _dark={{ bg: 'blueGray.900' }}
-            _light={{ bg: 'blueGray.50' }}
-            px={4}
-            flex={1}
-          >
-            <VStack space={5} alignItems='center'>
-              <Heading size='lg'>Welcome to NativeBase</Heading>
-              <HStack space={2} alignItems='center'>
-                <Text>Edit</Text>
-                <Code>App.tsx</Code>
-                <Text>and save to reload.</Text>
-              </HStack>
-              <Link href='https://docs.nativebase.io' isExternal>
-                <Text color='primary.500' underline fontSize={'xl'}>
-                  Learn NativeBase
-                </Text>
-              </Link>
-              <ToggleDarkMode />
-            </VStack>
-          </Center>
+          <Navigation />
         </NativeBaseProvider>
       </SafeAreaProvider>
     )
   }
-}
-
-function ToggleDarkMode() {
-  const { colorMode, toggleColorMode } = useColorMode()
-  return (
-    <HStack space={2} alignItems='center'>
-      <Text>Dark</Text>
-      <Switch
-        isChecked={colorMode === 'light' ? true : false}
-        onToggle={toggleColorMode}
-        aria-label={
-          colorMode === 'light' ? 'switch to dark mode' : 'switch to light mode'
-        }
-      />
-      <Text>Light</Text>
-    </HStack>
-  )
 }
 
 export default App
